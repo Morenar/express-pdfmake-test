@@ -3,7 +3,6 @@
   "compilerOptions": {
     "sourceMap": true,
     "esModuleInterop": true,
-    
     "target": "es2015",
     "module": "commonjs",
     "rootDir": ".",
@@ -11,8 +10,12 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-
     "baseUrl": ".",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "importHelpers": true,
+    "declaration": false,
   },
   "experimentalDecorators": true,
   "include": [
