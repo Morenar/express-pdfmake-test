@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const slsw = require('serverless-webpack');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const tsNameof = require('ts-nameof');
@@ -14,7 +15,7 @@ module.exports = {
   optimization: {
     minimize: false
   },
-  entry: './src/index.ts',
+  entry: slsw.lib.entries,
   target: 'node',
   externals: [nodeExternals()],
   resolve: {
@@ -23,7 +24,7 @@ module.exports = {
   },
   output: {
     libraryTarget: 'commonjs2',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, '.webpack'),
     filename: 'index.js'
   },
   target: 'node',
@@ -45,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new WebpackShellPlugin({
-      onBuildEnd: ['yarn run:dev']
+      //onBuildEnd: ['yarn run:dev']
     })
   ],
 }

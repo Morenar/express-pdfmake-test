@@ -1,0 +1,35 @@
+# serverless.yml
+
+service: my-express-application
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  serverless-offline:
+    httpPort: ${opt:port, 3001}
+    noPrependStageInUrl: true
+  webpack:
+    webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
+    includeModules: false
+    packager: 'npm'   # Packager that will be used to package your external modules
+    #excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
+  bundle:
+    linting: false
+    tsConfig: 'tsconfig.json'
+  
+  
