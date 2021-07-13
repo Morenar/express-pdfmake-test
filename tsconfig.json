@@ -1,27 +1,26 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "target": "es2015",
-    "module": "commonjs",
     "rootDir": ".",
-    "outDir": ".",
+    "sourceMap": true,
+    "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "baseUrl": ".",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "commonjs",
+    "esModuleInterop": true,
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "importHelpers": true,
-    "declaration": false,
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types"],
   },
-  "experimentalDecorators": true,
   "include": [
-      "./**/*.ts"
+    "./**/*.ts"
   ],
   "exclude": [
-      "node_modules"
+    "node_modules"
   ]
 }

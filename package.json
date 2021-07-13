@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
+    "build:serverless": "serverless webpack --out dist",
     "start:dev": "NODE_ENV=production webpack",
     "run:dev": "NODE_ENV=development nodemon build/index.js"
   },
